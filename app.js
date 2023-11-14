@@ -23,9 +23,9 @@ const itemSchema={
 }
 const Item =mongoose.model('Item',itemSchema)
 
-const item1=new Item({nombre:'texto de ejemplo 1'})
-const item2=new Item({nombre:'texto de ejemplo 2'})
-const item3=new Item({nombre:'texto de ejemplo 3'})
+const item1=new Item({nombre:'Ir al doctor'})
+const item2=new Item({nombre:'Ir a comprar'})
+const item3=new Item({nombre:'Ir al gimnasio'})
 
 const defaultItems=[item1,item2,item3]
 
@@ -56,7 +56,7 @@ app.get('/',(req,res)=>{
             res.redirect('/')
         }else{
             console.log(foundItems)
-            res.render('list',{listTitle:'Mi app todo list', newListItems: foundItems})
+            res.render('list',{listTitle:'Mi app To Do list', newListItems: foundItems})
         }
 
     })
@@ -68,7 +68,7 @@ app.get('/',(req,res)=>{
 })
 
 app.post("/",(req,res)=>{
-const nuevoItem = req.body.newTodo
+const nuevoItem = req.body.nuevoItems
 const item= new Item({nombre:nuevoItem})
 item.save()
 console.log("se guardaron los datos")
@@ -77,7 +77,7 @@ res.redirect('/') //para volver y agregar los datos devbuelta a la pagina
 })
 
 app.post("/delete",(req,res)=>{
-const idDelet= req.body.mongo
+const idDelet= req.body.items
 console.log(idDelet)
 Item.findByIdAndRemove(idDelet)
 .then(function(id){

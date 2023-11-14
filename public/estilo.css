@@ -1,8 +1,20 @@
+
+body {
+  height: 100vh;
+}
+.contenedor{
+  
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
 html {
 
     background-color: #E4E9FD;
-
-    background-image: -webkit-linear-gradient(58deg, #A683E3 55%, #E4E9FD 50%);
+    background-image: -webkit-linear-gradient(243deg, #A683E3 49%, #E4E9FD 49%);
 
     min-height: 1000px;
 
@@ -234,13 +246,12 @@ html {
 
   footer {
 
-    color: white;
+ 
 
     color: rgba(0, 0, 0, 0.5);
 
     text-align: center;
 
-    margin-top: 5%;
 
   }
   

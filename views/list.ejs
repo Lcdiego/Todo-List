@@ -1,6 +1,7 @@
-<%- include('header')%>
-
+<%- include('head')%>
 <body>
+  <div class="contenedor">
+
     <div class="box"id="heading">
         <h1><%= listTitle%></h1>
         <div class="box">
@@ -8,7 +9,7 @@
                     <form action="/delete"method="post">
           
             <div class="item">
-              <input type="checkbox"name="mongo" value= "<%= newListItems [i].id %>" onchange="form.submit()">
+              <input type="checkbox"name="items" value= "<%= newListItems [i].id %>" onchange="form.submit()">
                <p>
                 
                 <%= newListItems[i].nombre%>
@@ -22,7 +23,7 @@
 
               <div>
                 <form class=" item" action="/"method="post">
-                <input type="text"name="newTodo"placeholder="nuevo item"autocomplete="off">
+                <input type="text"name="nuevoItems"placeholder="Nuevo Item"autocomplete="off">
                 <button type="submit">+</button>
               </div>
         </div>
@@ -33,8 +34,9 @@
     </div>
    
 
-
-
-
+   
+  
+  </div>
 </body>
+
 <%- include('footer')%>
