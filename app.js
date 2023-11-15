@@ -3,6 +3,8 @@ import express from "express"
 import bodyParser from "body-parser"
 import mongoose from "mongoose"
 import morgan from "morgan"
+import dotenv from "dotenv"
+
 
 
 
@@ -15,8 +17,16 @@ app.use(bodyParser.urlencoded({extende:true}))
 app.use(morgan('dev'))
 app.use(express.static('public'))
 
+dotenv.config()
 //coneccion del mongodb
-mongoose.connect('mongodb://127.0.0.1:27017/todolistDBTN')
+mongoose.connect(process.env.MONGODB_URI)
+.then(()=>{
+    console.log("coneccion al mongo");
+})
+.catch((error)=>{
+    console.error("error de coneccion ", error);
+})
+
 
 const itemSchema={
     nombre:String
